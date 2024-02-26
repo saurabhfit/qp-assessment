@@ -1,17 +1,13 @@
 package com.example.QuestionPro.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name="GroceryItem")
 @NoArgsConstructor
 @AllArgsConstructor
-@Setter
-@Getter
+@Data
 public class GroceryItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

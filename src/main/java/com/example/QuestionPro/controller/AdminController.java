@@ -59,4 +59,21 @@ public class AdminController {
         return response;
     }
 
+    @DeleteMapping("removeGroceryItem/{id}")
+    public ResponseEntity<ResponsePayload> deleteGroceryItemById(@PathVariable long id){
+        ResponseEntity<ResponsePayload> response = null;
+        ResponsePayload payload = null;
+        if(groceryItemService.deleteById(id)){
+            payload = new ResponsePayload();
+            payload.setResponseMessage("grocery item id "+id+" removed from system");
+            payload.setResponseStatus(ResponsePayload.RESPONSE_STATUS.SUCCESS);
+            response = new ResponseEntity<>(payload, HttpStatus.OK);
+        }else{
+            payload = new ResponsePayload();
+            payload.setResponseMessage("grocery item id "+id+" unable to remove from system");
+            payload.setResponseStatus(ResponsePayload.RESPONSE_STATUS.FAILURE);
+            response = new ResponseEntity<>(payload, HttpStatus.EXPECTATION_FAILED);
+        }
+        return response;
+    }
 }

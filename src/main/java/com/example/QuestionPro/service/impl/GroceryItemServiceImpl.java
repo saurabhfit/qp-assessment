@@ -47,7 +47,11 @@ public class GroceryItemServiceImpl implements GroceryItemService {
 
     @Override
     public boolean deleteById(Long id) {
-        repository.deleteById(id);
-        return true;
+        if(repository.findById(id).isPresent()){
+            repository.deleteById(id);
+            return true;
+        }else{
+            return false;
+        }
     }
 }
