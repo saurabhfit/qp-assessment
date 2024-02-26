@@ -7,11 +7,9 @@ import com.example.QuestionPro.service.GroceryItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -40,6 +38,24 @@ public class AdminController {
         return response;
     }
 
-
+    @GetMapping("/viewAllGroceryItems")
+    public ResponseEntity<ResponsePayload> showAllGroceryItems(){
+        ResponseEntity<ResponsePayload> response = null;
+        List<GroceryItem> groceryItems = groceryItemService.findAll();
+        if(groceryItems.isEmpty()){
+            ResponsePayload payload = new ResponsePayload();
+            payload.setResponseMessage("Not found");
+            payload.setResponseStatus(ResponsePayload.RESPONSE_STATUS.FAILURE);
+            payload.setResponseDetails(new ArrayList<>());
+            response = new ResponseEntity<>(payload, HttpStatus.NOT_FOUND);
+        }else{
+            ResponsePayload payload = new ResponsePayload();
+            payload.setResponseStatus(ResponsePayload.RESPONSE_STATUS.SUCCESS);
+            payload.addResponseDetails(groceryItems);
+            payload.setResponseMessage(groceryItems.size()+" items found");
+            response = new ResponseEntity<>(payload, HttpStatus.OK);
+        }
+        return response;
+    }
 
 }
