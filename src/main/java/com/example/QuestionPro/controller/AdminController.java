@@ -28,6 +28,7 @@ public class AdminController {
             ResponsePayload errorPayload = new ResponsePayload();
             errorPayload.setResponseStatus(ResponsePayload.RESPONSE_STATUS.FAILURE);
             errorPayload.setResponseMessage("Failed saving grocery items to db");
+            response = new ResponseEntity<>(errorPayload, HttpStatus.EXPECTATION_FAILED);
         }else{
             ResponsePayload responsePayload = new ResponsePayload();
             responsePayload.setResponseStatus(ResponsePayload.RESPONSE_STATUS.SUCCESS);
