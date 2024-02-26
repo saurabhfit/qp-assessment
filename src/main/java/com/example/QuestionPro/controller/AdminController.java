@@ -1,6 +1,7 @@
 package com.example.QuestionPro.controller;
 
 import com.example.QuestionPro.model.GroceryItem;
+import com.example.QuestionPro.model.ValidationException;
 import com.example.QuestionPro.model.payload.GroceryItemDTO;
 import com.example.QuestionPro.model.payload.ResponsePayload;
 import com.example.QuestionPro.service.GroceryItemService;
@@ -34,7 +35,7 @@ public class AdminController {
             responsePayload.setResponseStatus(ResponsePayload.RESPONSE_STATUS.SUCCESS);
             responsePayload.setResponseMessage("Grocery Items saved successfully");
             responsePayload.setResponseDetails(Collections.singletonList(savedGroceryItems));
-            response = new ResponseEntity<>(responsePayload, HttpStatus.OK);
+            response = new ResponseEntity<>(responsePayload, HttpStatus.CREATED);
         }
         return response;
     }
@@ -74,6 +75,22 @@ public class AdminController {
             payload.setResponseStatus(ResponsePayload.RESPONSE_STATUS.FAILURE);
             response = new ResponseEntity<>(payload, HttpStatus.EXPECTATION_FAILED);
         }
+        return response;
+    }
+
+    @PatchMapping("updateGroceryItem/{id}")
+    public ResponseEntity<ResponsePayload> updateGroceryItem(@RequestBody GroceryItemDTO groceryItemDTO,
+                                                             @PathVariable long id) throws ValidationException {
+        ResponseEntity<ResponsePayload> response = null;
+        ResponsePayload payload = null;
+
+        GroceryItem groceryItem = groceryItemService.updateGroceryItem(groceryItemDTO, id);
+        payload = new ResponsePayload();
+        payload.setResponseStatus(ResponsePayload.RESPONSE_STATUS.SUCCESS);
+        payload.setResponseMessage("Details updated of grocery item with id "+id);
+        payload.addResponseDetails(groceryItem);
+
+        response = new ResponseEntity<>(payload, HttpStatus.ACCEPTED);
         return response;
     }
 }

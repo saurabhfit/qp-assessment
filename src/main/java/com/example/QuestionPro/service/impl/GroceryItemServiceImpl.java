@@ -1,9 +1,11 @@
 package com.example.QuestionPro.service.impl;
 
 import com.example.QuestionPro.model.GroceryItem;
+import com.example.QuestionPro.model.ValidationException;
 import com.example.QuestionPro.model.payload.GroceryItemDTO;
 import com.example.QuestionPro.repository.GroceryItemRepository;
 import com.example.QuestionPro.service.GroceryItemService;
+import io.micrometer.common.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,8 +43,24 @@ public class GroceryItemServiceImpl implements GroceryItemService {
     }
 
     @Override
-    public GroceryItem updateGroceryItem(GroceryItem newGroceryItem) {
-        return repository.save(newGroceryItem);
+    public GroceryItem updateGroceryItem(GroceryItemDTO newGroceryItem, long id) throws ValidationException {
+        Optional<GroceryItem> optionalGroceryItem = repository.findById(id);
+        if(optionalGroceryItem.isPresent()){
+            GroceryItem groceryItemFromDb = optionalGroceryItem.get();
+            if(StringUtils.isNotEmpty(newGroceryItem.getName())){
+                groceryItemFromDb.setName(newGroceryItem.getName());
+            }
+            if(newGroceryItem.getPrice()!=null){
+                groceryItemFromDb.setPrice(newGroceryItem.getPrice());
+            }
+            if(newGroceryItem.getInventoryLevel()!=null){
+                groceryItemFromDb.setInventoryLevel(newGroceryItem.getInventoryLevel());
+            }
+            GroceryItem updatedItem = repository.save(groceryItemFromDb);
+            return updatedItem;
+        }else{
+            throw new ValidationException("Grocery item id "+id+" not present in inventory");
+        }
     }
 
     @Override
