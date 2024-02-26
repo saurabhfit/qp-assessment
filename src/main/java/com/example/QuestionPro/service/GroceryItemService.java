@@ -1,11 +1,8 @@
 package com.example.QuestionPro.service;
 
 import com.example.QuestionPro.model.GroceryItem;
-import com.example.QuestionPro.model.ValidationException;
+import com.example.QuestionPro.exception.ValidationException;
 import com.example.QuestionPro.model.payload.GroceryItemDTO;
-import com.example.QuestionPro.repository.GroceryItemRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;

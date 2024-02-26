@@ -1,7 +1,7 @@
 package com.example.QuestionPro.service.impl;
 
 import com.example.QuestionPro.model.GroceryItem;
-import com.example.QuestionPro.model.ValidationException;
+import com.example.QuestionPro.exception.ValidationException;
 import com.example.QuestionPro.model.payload.GroceryItemDTO;
 import com.example.QuestionPro.repository.GroceryItemRepository;
 import com.example.QuestionPro.service.GroceryItemService;

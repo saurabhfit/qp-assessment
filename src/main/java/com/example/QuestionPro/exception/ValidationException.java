@@ -1,4 +1,4 @@
-package com.example.QuestionPro.model;
+package com.example.QuestionPro.exception;
 
 import lombok.Data;
 
