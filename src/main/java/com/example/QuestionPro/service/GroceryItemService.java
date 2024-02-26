@@ -1,6 +1,7 @@
 package com.example.QuestionPro.service;
 
 import com.example.QuestionPro.model.GroceryItem;
+import com.example.QuestionPro.model.payload.GroceryItemDTO;
 import com.example.QuestionPro.repository.GroceryItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +11,7 @@ import java.util.Optional;
 
 public interface GroceryItemService {
 
-    public GroceryItem createGroceryItem(GroceryItem groceryItem);
+    public List<GroceryItem> createGroceryItems(List<GroceryItemDTO> groceryItemDTOs);
     public Optional<GroceryItem> findById(Long id);
     public List<GroceryItem> findAll();
     public GroceryItem updateGroceryItem(GroceryItem newGroceryItem);
