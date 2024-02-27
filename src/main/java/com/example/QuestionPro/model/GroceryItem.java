@@ -1,5 +1,6 @@
 package com.example.QuestionPro.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,6 +12,7 @@ import lombok.*;
 public class GroceryItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonProperty("item_id")
     private Long id;
     @Column(nullable = false)
     private String name;

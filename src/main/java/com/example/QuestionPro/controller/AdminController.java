@@ -34,7 +34,7 @@ public class AdminController {
             ResponsePayload responsePayload = new ResponsePayload();
             responsePayload.setResponseStatus(ResponsePayload.RESPONSE_STATUS.SUCCESS);
             responsePayload.setResponseMessage("Grocery Items saved successfully");
-            responsePayload.setResponseDetails(Collections.singletonList(savedGroceryItems));
+            responsePayload.addResponseDetails(savedGroceryItems);
             response = new ResponseEntity<>(responsePayload, HttpStatus.CREATED);
         }
         return response;
