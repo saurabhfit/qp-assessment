@@ -1,0 +1,697 @@
+{
+	"info": {
+		"_postman_id": "ccf4ab9c-0503-4b04-866d-119091cbd6c6",
+		"name": "questionpro",
+		"description": "[https://www.questionpro.com/a/TakeSurvey?tt=End01kiL3M8ECHrPeIW9eQ==&amp;custom1=29435790&amp;firstname=Saurabh&amp;lastname=Anand&amp;stack=JAVA](https://www.questionpro.com/a/TakeSurvey?tt=End01kiL3M8ECHrPeIW9eQ%3D%3D&custom1=29435790&firstname=Saurabh&lastname=Anand&stack=JAVA)  \n\n<u><b>Your Application Details:</b></u>**Application ID :** 29435790  \n If the Application ID is missing - you are not using the correct link. Please use the link in the email as is. **Name :** Saurabh Anand <u><b>Problem Statement:</b></u>Design a Grocery Booking API:Roles:- Admin- User  \n  \n **Mandatory Requirements:**If you have applied for Fullstack Node position, please use typescript.   \n**Design API endpoints**1\\. Admin Responsibilities:   - Add new grocery items to the system   - View existing grocery items   - Remove grocery items from the system   - Update details (e.g., name, price) of existing grocery items   - Manage inventory levels of grocery items2. User Responsibilities:   - View the list of available grocery items   - Ability to book multiple grocery items in a single order**Advanced Challenge:**\\- Containerize the application using Docker for ease of deployment and scaling.Database:- Use any relational database of your choice.<u><b>How to submit the code?</b></u>Create a new GitHub repository with name : **qp-assessment**Once you are ready with the code, you can come back on this URL to submit the GitHub Repo Link.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20439864"
+	},
+	"item": [
+		{
+			"name": "createGroceryItems",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"name\": \"Item 1\",\n        \"price\": 23.99,\n        \"inventoryLevel\": 100\n    },\n    {\n        \"name\": \"Item 2\",\n        \"price\": 69.69,\n        \"inventoryLevel\": 50\n    },\n    {\n        \"name\": \"Item 3\",\n        \"price\": 18.99,\n        \"inventoryLevel\": 75\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/admin/addGroceryItems",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"admin",
+						"addGroceryItems"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "createGroceryItems",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"name\": \"Item 1\",\n        \"price\": 23.99,\n        \"inventoryLevel\": 100\n    },\n    {\n        \"name\": \"Item 2\",\n        \"price\": 69.69,\n        \"inventoryLevel\": 50\n    },\n    {\n        \"name\": \"Item 3\",\n        \"price\": 18.99,\n        \"inventoryLevel\": 75\n    }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/admin/addGroceryItems",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"admin",
+								"addGroceryItems"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Feb 2024 21:20:37 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseStatus\": \"SUCCESS\",\n    \"responseMessage\": \"Grocery Items saved successfully\",\n    \"responseDetails\": [\n        [\n            {\n                \"name\": \"Item 1\",\n                \"price\": 23.99,\n                \"inventoryLevel\": 100,\n                \"item_id\": 1\n            },\n            {\n                \"name\": \"Item 2\",\n                \"price\": 69.69,\n                \"inventoryLevel\": 50,\n                \"item_id\": 2\n            },\n            {\n                \"name\": \"Item 3\",\n                \"price\": 18.99,\n                \"inventoryLevel\": 75,\n                \"item_id\": 3\n            }\n        ]\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "showAllGroceryItems",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/admin/viewAllGroceryItems",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"admin",
+						"viewAllGroceryItems"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "showAllGroceryItems",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/admin/viewAllGroceryItems",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"admin",
+								"viewAllGroceryItems"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Feb 2024 20:43:59 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseStatus\": \"SUCCESS\",\n    \"responseMessage\": \"3 items found\",\n    \"responseDetails\": [\n        [\n            {\n                \"id\": 1,\n                \"name\": \"Item 1\",\n                \"price\": 23.99,\n                \"inventoryLevel\": 100\n            },\n            {\n                \"id\": 2,\n                \"name\": \"Item 2\",\n                \"price\": 69.69,\n                \"inventoryLevel\": 50\n            },\n            {\n                \"id\": 3,\n                \"name\": \"Item 3\",\n                \"price\": 18.99,\n                \"inventoryLevel\": 75\n            }\n        ]\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "deleteGroceryItemsById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/admin/removeGroceryItem/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"admin",
+						"removeGroceryItem",
+						"5"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "deleteGroceryItemsById",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/admin/removeGroceryItem/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"admin",
+								"removeGroceryItem",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Feb 2024 20:44:03 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseStatus\": \"SUCCESS\",\n    \"responseMessage\": \"grocery item id 1 removed from system\",\n    \"responseDetails\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "updateGroceryItemsById",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/admin/updateGroceryItem/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"admin",
+						"updateGroceryItem",
+						"5"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "updateGroceryItemsById",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"inventoryLevel\":500\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/admin/updateGroceryItem/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"admin",
+								"updateGroceryItem",
+								"2"
+							]
+						}
+					},
+					"status": "Accepted",
+					"code": 202,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Feb 2024 20:31:44 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseStatus\": \"SUCCESS\",\n    \"responseMessage\": \"Details updated of grocery item with id 2\",\n    \"responseDetails\": [\n        {\n            \"id\": 2,\n            \"name\": \"Item 2\",\n            \"price\": 69.69,\n            \"inventoryLevel\": 500\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "viewAllGroceryItems for user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/user/viewAllGroceryItems",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"user",
+						"viewAllGroceryItems"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "viewAllGroceryItems for user",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/user/viewAllGroceryItems",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"user",
+								"viewAllGroceryItems"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Feb 2024 20:44:07 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseStatus\": \"SUCCESS\",\n    \"responseMessage\": \"2 items found\",\n    \"responseDetails\": [\n        [\n            {\n                \"id\": 2,\n                \"name\": \"Item 2\",\n                \"price\": 69.69,\n                \"inventoryLevel\": 50\n            },\n            {\n                \"id\": 3,\n                \"name\": \"Item 3\",\n                \"price\": 18.99,\n                \"inventoryLevel\": 75\n            }\n        ]\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "viewAllUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"user"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "viewAllUsers",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"user"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Feb 2024 20:44:29 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseStatus\": \"SUCCESS\",\n    \"responseMessage\": \"Total 2 users found\",\n    \"responseDetails\": [\n        [\n            {\n                \"id\": 1,\n                \"userType\": \"USER\",\n                \"name\": \"Saurabh\",\n                \"address\": \"Bangalore\",\n                \"orders\": []\n            },\n            {\n                \"id\": 2,\n                \"userType\": \"ADMIN\",\n                \"name\": \"Anuj\",\n                \"address\": \"Pune\",\n                \"orders\": []\n            }\n        ]\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "viewUserById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/user/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "viewUserById",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/v1/user/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"user",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Feb 2024 20:44:34 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseStatus\": \"SUCCESS\",\n    \"responseMessage\": \"User found with id 2\",\n    \"responseDetails\": [\n        {\n            \"id\": 2,\n            \"userType\": \"ADMIN\",\n            \"name\": \"Anuj\",\n            \"address\": \"Pune\",\n            \"orders\": []\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "createUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userDto\":{\n        \"userType\":\"User\",\n        \"name\":\"Saurabh\",\n        \"address\":\"Sarjapur\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"user"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "createUser",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userType\":\"USER\",\n    \"name\":\"Saurabh\",\n    \"address\":\"Ranchi\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"user"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Feb 2024 21:20:39 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseStatus\": \"SUCCESS\",\n    \"responseMessage\": \"User creation successful\",\n    \"responseDetails\": [\n        {\n            \"userType\": \"USER\",\n            \"name\": \"Saurabh\",\n            \"address\": \"Ranchi\",\n            \"user_id\": 1\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "bookItems",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"itemIds\":[\n        1,\n        2\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/user/bookItems/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"user",
+						"bookItems",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "bookItems",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"itemIds\":[ \n        1,3\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/v1/user/bookItems/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"user",
+								"bookItems",
+								"1"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 27 Feb 2024 21:21:00 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"responseStatus\": \"SUCCESS\",\n    \"responseMessage\": \"Order created: 2\",\n    \"responseDetails\": [\n        {\n            \"user\": {\n                \"userType\": \"USER\",\n                \"name\": \"Saurabh\",\n                \"address\": \"Ranchi\",\n                \"user_id\": 1\n            },\n            \"groceryItems\": [\n                {\n                    \"name\": \"Item 1\",\n                    \"price\": 23.99,\n                    \"inventoryLevel\": 100,\n                    \"item_id\": 1\n                },\n                {\n                    \"name\": \"Item 3\",\n                    \"price\": 18.99,\n                    \"inventoryLevel\": 75,\n                    \"item_id\": 3\n                }\n            ],\n            \"order_id\": 2\n        }\n    ]\n}"
+				}
+			]
+		}
+	]
+}
